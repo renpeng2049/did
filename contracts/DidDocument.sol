@@ -1,4 +1,6 @@
-pragma solidity ^0.5.0;
+// SPDX-License-Identifier: SimPL-2.0
+
+pragma solidity ^0.8.0;
 
 contract DidDocumentData {
 
@@ -70,9 +72,14 @@ contract DidDocumentData {
 
         bytes32[16] memory serviceKeys;
 
-        dids[didhash] = DidDocument({id:did,created:created,updated:updated,vmKeys:vmKeys,authKeys:authKeys,serviceKeys:serviceKeys});
-
         DidDocument storage dd = dids[didhash];
+
+        dd.id = did;
+        dd.created = created;
+        dd.updated = updated;
+        dd.vmKeys = vmKeys;
+        dd.authKeys = authKeys;
+        dd.serviceKeys = serviceKeys;
 
         dd.vms[pkhash] = VerificationMethod({id: pkid,ptype: pktype,controller:did,property:publicKey});
         dd.auths[pkhash] = Authentication({id: pkid,ptype: pktype,controller:did,property:publicKey});

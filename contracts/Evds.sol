@@ -1,4 +1,7 @@
-pragma solidity ^0.5.0;
+// SPDX-License-Identifier: SimPL-2.0
+
+
+pragma solidity ^0.8.0;
 
 import "./RoleController.sol";
 import "./DidController.sol";
@@ -18,7 +21,7 @@ contract Evds {
     mapping (bytes32 => VcStub) private evdsMap;
 
 
-    constructor(address didControllerAddress) public {
+    constructor(address didControllerAddress) {
         didController = DidController(didControllerAddress);
     }
 

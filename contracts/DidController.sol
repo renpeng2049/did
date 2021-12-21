@@ -1,4 +1,6 @@
-pragma solidity ^0.5.0;
+// SPDX-License-Identifier: SimPL-2.0
+
+pragma solidity ^0.8.0;
 
 import "./DidDocument.sol";
 
@@ -8,7 +10,7 @@ contract DidController {
 
     DidDocumentData private didDocument;
 
-    constructor(address didDocumentAddress) public {
+    constructor(address didDocumentAddress) {
         didDocument = DidDocumentData(didDocumentAddress);
     }
 
